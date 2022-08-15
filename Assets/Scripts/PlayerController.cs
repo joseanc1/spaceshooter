@@ -8,11 +8,15 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D myRB;
     [SerializeField] private float velocidade = 5f;
+    [SerializeField] private GameObject meuTiro;
+    
     
     
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
+        
+        
         
     }
 
@@ -33,6 +37,14 @@ public class PlayerController : MonoBehaviour
       
       //passando a velocidade para o RB
       myRB.velocity = minhaVelocidade * velocidade;
+      
+      
+      
+      //teste de botão de tiro
+      if (Input.GetButtonDown("Fire1"))
+      {
+          Instantiate(meuTiro, transform.position, transform.rotation);
+      }
     }
 
     

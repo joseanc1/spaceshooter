@@ -17,6 +17,8 @@ public class TiroController : MonoBehaviour
         
         //indo para cima
         meuRB.velocity = new Vector2(0f, vel);
+        
+        
 
 
     }

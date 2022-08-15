@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9211291329073788493}
   - component: {fileID: 5001619236229564061}
+  - component: {fileID: 2018225518}
   m_Layer: 0
   m_Name: tiro_player
   m_TagString: Untagged
@@ -45,6 +46,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 577d5d24f06b1b14bbf66c7cfe22b085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vel: 10
+--- !u!50 &2018225518
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2386227930513865870}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4764360698015881375
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,8 +138,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722719531
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9db3b57b83b3684d8bf22badb365bfa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
