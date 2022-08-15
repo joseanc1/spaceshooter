@@ -5,19 +5,31 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //somente test
-    float vel = 0.1f;
+
+    private Rigidbody2D myRB;
+    [SerializeField] private float velocidade = 5f;
+    
     
     void Start()
     {
+        myRB = GetComponent<Rigidbody2D>();
         
     }
 
     
     void Update()
-    {
-        var horizontal  = Input.GetAxis("Horizontal")* vel;
-        Debug.Log(horizontal);
+    { 
+     //pegando o input horizontal 
+     float horizontal = Input.GetAxis("Horizontal");
+    
+     //pegando o input vertical
+     float vertical = Input.GetAxis("Vertical");
+     Vector2 minhaVelocidade = new Vector2(horizontal,vertical) * velocidade;
+     
+      
+      
+      //passando a velocidade para o RB
+      myRB.velocity = minhaVelocidade;
     }
 
     
