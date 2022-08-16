@@ -12,6 +12,8 @@ public class Inimigo01Controller : MonoBehaviour
 
     [SerializeField] private GameObject meuTiro;
     
+    private float esperaTiro = 1f;
+    
     void Start()
     {
 
@@ -26,7 +28,18 @@ public class Inimigo01Controller : MonoBehaviour
     
     void Update()
     {
-        //instanciando o tiro
-        Instantiate(meuTiro, transform.position, transform.rotation);
+        //diminuindo a espera, e se ela for igual ou menor que 0 o inimigo atira
+        esperaTiro -= Time.deltaTime;
+        
+        if (esperaTiro <= 0)
+        {
+            //instanciando o tiro
+            Instantiate(meuTiro, transform.position, transform.rotation);
+            
+            //reiniciar a espera do tiro
+            esperaTiro = 1f;
+        }
+
+
     }
 }
