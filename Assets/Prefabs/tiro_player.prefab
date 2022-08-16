@@ -80,7 +80,7 @@ Animator:
   m_GameObject: {fileID: 2386227930513865870}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b12ca98ee4546b643aa5e6df2cd1b11b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7fbeda36bdfae4d43bd2c7744df5d52f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -116,6 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7234679917121900722}
   - component: {fileID: 746840092440525743}
+  - component: {fileID: 3025182110877599067}
   m_Layer: 0
   m_Name: tiro_player
   m_TagString: Untagged
@@ -190,3 +191,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3025182110877599067
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4764360698015881375}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e046cb963c87ba1438979267906d6fcc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
