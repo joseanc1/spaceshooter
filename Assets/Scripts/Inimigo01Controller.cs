@@ -10,6 +10,7 @@ public class Inimigo01Controller : MonoBehaviour
 
     [SerializeField] private float velocidade = -3f;
 
+    [SerializeField] private GameObject meuTiro;
     
     void Start()
     {
@@ -25,6 +26,7 @@ public class Inimigo01Controller : MonoBehaviour
     
     void Update()
     {
-        
+        //instanciando o tiro
+        Instantiate(meuTiro, transform.position, transform.rotation);
     }
 }
