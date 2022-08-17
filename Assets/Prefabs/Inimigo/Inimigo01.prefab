@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 138787177}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.8, y: -1.41, z: 0}
+  m_LocalPosition: {x: -0.037, y: -0.507, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 7998263716365503180}
   - component: {fileID: 7998263716365503182}
   - component: {fileID: 7998263716365503183}
+  - component: {fileID: 9018907843195857747}
   m_Layer: 6
   m_Name: Inimigo01
   m_TagString: Untagged
@@ -86,7 +87,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &7998263716365503183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,6 +103,22 @@ MonoBehaviour:
   velocidade: -3
   meuTiro: {fileID: 2099386575307268028, guid: 31b264776ff5fe349b4fa1e4f243841c, type: 3}
   posicaoTiro: {fileID: 138787178}
+--- !u!70 &9018907843195857747
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7998263716365503181}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
 --- !u!1 &7998263716933848055
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,8 +144,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7998263716933848055}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.7937896, y: -0.8568371, z: 0.029116232}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -173,8 +190,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1177658411
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1503150189, guid: ff4fd80ed75493347a209e60a5fcf21a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

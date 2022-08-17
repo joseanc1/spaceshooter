@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D myRB;
     [SerializeField] private float velocidade = 5f;
     [SerializeField] private GameObject meuTiro;
+    [SerializeField] private Transform posicaoTiro;
     
     
     
@@ -43,7 +44,7 @@ public class PlayerController : MonoBehaviour
       //teste de botão de tiro
       if (Input.GetButtonDown("Fire1"))
       {
-          Instantiate(meuTiro, transform.position, transform.rotation);
+          Instantiate(meuTiro, posicaoTiro.position, transform.rotation);
       }
     }
 
