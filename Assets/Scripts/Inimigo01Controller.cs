@@ -14,6 +14,8 @@ public class Inimigo01Controller : MonoBehaviour
 
 
     [SerializeField] private Transform posicaoTiro;
+
+    [SerializeField] private int vida = 1;
     
     private float esperaTiro = 1f;
     
@@ -58,9 +60,15 @@ public class Inimigo01Controller : MonoBehaviour
                 esperaTiro = Random.Range(1.5f, 2f);
             }
         }
-
         
+    }
 
-
+    //metodo para morte do inimigo
+    public void PerdaVida(int dano)
+    {
+        //perdendo a vida com base no dano
+        vida -= dano;
+        
+      
     }
 }

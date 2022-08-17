@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float velocidade = 5f;
     [SerializeField] private GameObject meuTiro;
     [SerializeField] private Transform posicaoTiro;
+    [SerializeField] private int vida = 3;
     
     
     
@@ -47,6 +49,13 @@ public class PlayerController : MonoBehaviour
           Instantiate(meuTiro, posicaoTiro.position, transform.rotation);
       }
     }
+
+    public void PerdaVida(int dano)
+    {
+        vida -= dano;
+        
+    }
+    
 
     
 }
