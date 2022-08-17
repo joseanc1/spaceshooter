@@ -349,10 +349,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inimigo01
       objectReference: {fileID: 0}
-    - target: {fileID: 7998263716365503183, guid: e951efb647ac6db44a987e9ef74f2b57, type: 3}
-      propertyPath: efeitoTiro
-      value: 
-      objectReference: {fileID: 1782611952686522211, guid: 1a9f7aa065991ce43a1a05192d116268, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e951efb647ac6db44a987e9ef74f2b57, type: 3}
 --- !u!1001 &8309587251930695403
