@@ -22,23 +22,41 @@ public class Inimigo01Controller : MonoBehaviour
         
         //dando velocidade para o meuRB
         meuRb.velocity = new Vector2(0f, velocidade);
+        
+        
+        //deixando a espera aleatória para o primeiro tiro
+        esperaTiro = Random.Range(0.5f, 2f);
 
     }
 
     
     void Update()
     {
-        //diminuindo a espera, e se ela for igual ou menor que 0 o inimigo atira
-        esperaTiro -= Time.deltaTime;
+        //checando se o spriterender esta visivel
         
-        if (esperaTiro <= 0)
+        //pegando info dos "filhos"
+        bool visivel = GetComponentInChildren<SpriteRenderer>().isVisible;
+        
+        
+        
+       
+
+        if (visivel)
         {
-            //instanciando o tiro
-            Instantiate(meuTiro, transform.position, transform.rotation);
+            //diminuindo a espera, e se ela for igual ou menor que 0 o inimigo atira
+            esperaTiro -= Time.deltaTime;
             
-            //reiniciar a espera do tiro
-            esperaTiro = 1f;
+            if (esperaTiro <= 0)
+            {
+                //instanciando o tiro
+                Instantiate(meuTiro, transform.position, transform.rotation);
+            
+                //reiniciar a espera do tiro
+                esperaTiro = Random.Range(1.5f, 2f);
+            }
         }
+
+        
 
 
     }
