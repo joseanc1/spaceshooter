@@ -16,6 +16,8 @@ public class Inimigo01Controller : MonoBehaviour
     [SerializeField] private Transform posicaoTiro;
 
     [SerializeField] private int vida = 1;
+
+    
     
     private float esperaTiro = 1f;
     

@@ -9,6 +9,7 @@ public class TiroController : MonoBehaviour
 
     [SerializeField] private float vel = 10f;
 
+    [SerializeField] private GameObject impacto;
     
     
     
@@ -40,16 +41,24 @@ public class TiroController : MonoBehaviour
         if (collision.CompareTag("Inimigo01"))
         {
             collision.GetComponent<Inimigo01Controller>().PerdaVida(1);
+            
+
         }
+        
+        
 
         
         //checando colisão com o player
         if (collision.CompareTag("Jogador"))
         {
             collision.GetComponent<PlayerController>().PerdaVida(1);
+            
         }
 
         Destroy(gameObject);
         
+        //criando o impacto
+        Instantiate(impacto, transform.position, transform.rotation);
+
     }
 }
