@@ -17,6 +17,8 @@ public class Inimigo01Controller : MonoBehaviour
 
     [SerializeField] private int vida = 1;
 
+    [SerializeField] private GameObject efeitoMorte;
+
     
     
     private float esperaTiro = 1f;
@@ -65,12 +67,22 @@ public class Inimigo01Controller : MonoBehaviour
         
     }
 
-    //metodo para morte do inimigo
+    //metodo para perca de vida do inimigo
     public void PerdaVida(int dano)
     {
         //perdendo a vida com base no dano
         vida -= dano;
+
+
+        //checando se morri
+        if (vida <= 0)
+        {
+            Destroy(gameObject);
+        }
+
+        Instantiate(efeitoMorte, transform.position, transform.rotation);
         
-      
+
+
     }
 }

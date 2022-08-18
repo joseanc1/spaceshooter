@@ -103,7 +103,8 @@ MonoBehaviour:
   velocidade: -3
   meuTiro: {fileID: 2099386575307268028, guid: 31b264776ff5fe349b4fa1e4f243841c, type: 3}
   posicaoTiro: {fileID: 138787178}
-  vida: 10
+  vida: 1
+  efeitoMorte: {fileID: 7324414365119074927, guid: c110de2906e4b0146abbaedb37749ed4, type: 3}
 --- !u!70 &9018907843195857747
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
