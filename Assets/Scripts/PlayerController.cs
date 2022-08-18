@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject meuTiro;
     [SerializeField] private Transform posicaoTiro;
     [SerializeField] private int vida = 3;
+
+    [SerializeField] private GameObject efeitoMorte;
     
     
     
@@ -54,6 +56,16 @@ public class PlayerController : MonoBehaviour
     {
         vida -= dano;
         
+        
+        
+        //checando se morri
+        if (vida <= 0)
+        {
+            Destroy(gameObject);
+        }
+
+        //instanciando a animação 
+        Instantiate(efeitoMorte, transform.position, transform.rotation);
     }
     
 

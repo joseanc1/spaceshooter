@@ -17,6 +17,7 @@ public class Inimigo01Controller : MonoBehaviour
 
     [SerializeField] private int vida = 1;
 
+    //var para o prefab de animação de morte
     [SerializeField] private GameObject efeitoMorte;
 
     
@@ -80,6 +81,7 @@ public class Inimigo01Controller : MonoBehaviour
             Destroy(gameObject);
         }
 
+        //instanciando a animação 
         Instantiate(efeitoMorte, transform.position, transform.rotation);
         
 
