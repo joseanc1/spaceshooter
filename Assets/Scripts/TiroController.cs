@@ -38,9 +38,9 @@ public class TiroController : MonoBehaviour
         //pegar o metodo perdeVida e aplicar o dano
         //só deve funcionar se colidir com alguem que tenha o script inimigo controller 01
         //checando se a tag de quem estou colidindo é inimigo01
-        if (collision.CompareTag("Inimigo01"))
+        if (collision.CompareTag("Inimigo"))
         {
-            collision.GetComponent<Inimigo01Controller>().PerdaVida(1);
+            collision.GetComponent<InimigoPai>().PerdeVida(1);
             
 
         }

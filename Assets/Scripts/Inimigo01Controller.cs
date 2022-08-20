@@ -2,23 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inimigo01Controller : MonoBehaviour
+public class Inimigo01Controller : InimigoPai
 {
 
     //variavel do rigidbody2d
     private Rigidbody2D meuRb;
 
-    [SerializeField] private float velocidade = -3f;
+    
 
     [SerializeField] private GameObject meuTiro;
 
 
     [SerializeField] private Transform posicaoTiro;
+    
 
-    [SerializeField] private int vida = 1;
-
-    //var para o prefab de animação de morte
-    [SerializeField] private GameObject efeitoMorte;
+    
 
     
     
@@ -27,6 +25,9 @@ public class Inimigo01Controller : MonoBehaviour
     void Start()
     {
 
+       
+        
+        
         //pegando o rigidbody
         meuRb = GetComponent<Rigidbody2D>();
         
@@ -68,23 +69,5 @@ public class Inimigo01Controller : MonoBehaviour
         
     }
 
-    //metodo para perca de vida do inimigo
-    public void PerdaVida(int dano)
-    {
-        //perdendo a vida com base no dano
-        vida -= dano;
-
-
-        //checando se morri
-        if (vida <= 0)
-        {
-            Destroy(gameObject);
-        }
-
-        //instanciando a animação 
-        Instantiate(efeitoMorte, transform.position, transform.rotation);
-        
-
-
-    }
+    
 }
