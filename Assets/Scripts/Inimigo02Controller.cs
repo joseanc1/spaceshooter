@@ -23,6 +23,9 @@ public class Inimigo02Controller : InimigoPai
         
         //dando velocidade para o meuRB
         meuRb.velocity = new Vector2(0f, velocidade);
+        
+        //deixando a espera aleatória para o primeiro tiro
+        esperaTiro = Random.Range(0.5f, 2f);
     }
 
     // Update is called once per frame
@@ -34,13 +37,10 @@ public class Inimigo02Controller : InimigoPai
 
     private void Atirando()
     {
-        //checando se o spriterender esta visivel
-
-        //pegando info dos "filhos"
-        bool visivel = GetComponentInChildren<SpriteRenderer>().isVisible;
 
 
-        if (visivel)
+        Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
+        if (viewPos.y > 0 && viewPos.y <1)
         {
             //diminuindo a espera, e se ela for igual ou menor que 0 o inimigo atira
             esperaTiro -= Time.deltaTime;
