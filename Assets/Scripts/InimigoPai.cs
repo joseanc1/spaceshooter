@@ -10,6 +10,7 @@ public class InimigoPai : MonoBehaviour
     [SerializeField] protected int vida;
 
     [SerializeField] protected GameObject explosao;
+    [SerializeField] protected float esperaTiro = 1f;
     
     
     

@@ -20,7 +20,7 @@ public class Inimigo01Controller : InimigoPai
 
     
     
-    private float esperaTiro = 1f;
+    protected float esperaTiro = 1f;
     
     void Start()
     {
@@ -43,31 +43,30 @@ public class Inimigo01Controller : InimigoPai
     
     void Update()
     {
+        Atirando();
+    }
+
+    private void Atirando()
+    {
         //checando se o spriterender esta visivel
-        
+
         //pegando info dos "filhos"
         bool visivel = GetComponentInChildren<SpriteRenderer>().isVisible;
-        
-        
-        
-       
+
 
         if (visivel)
         {
             //diminuindo a espera, e se ela for igual ou menor que 0 o inimigo atira
             esperaTiro -= Time.deltaTime;
-            
+
             if (esperaTiro <= 0)
             {
                 //instanciando o tiro
                 Instantiate(meuTiro, posicaoTiro.position, transform.rotation);
-            
+
                 //reiniciar a espera do tiro
                 esperaTiro = Random.Range(1.5f, 2f);
             }
         }
-        
     }
-
-    
 }
