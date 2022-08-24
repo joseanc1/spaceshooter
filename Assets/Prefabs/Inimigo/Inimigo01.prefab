@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 9018907843195857747}
   m_Layer: 6
   m_Name: Inimigo01
-  m_TagString: Inimigo01
+  m_TagString: Inimigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
