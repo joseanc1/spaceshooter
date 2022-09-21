@@ -48,9 +48,17 @@ public class Inimigo02Controller : InimigoPai
             if (esperaTiro <= 0)
             {
                 //instanciando o tiro
-                Instantiate(meuTiro, posicaoTiro.position, transform.rotation);
+               var tiro = Instantiate(meuTiro, posicaoTiro.position, transform.rotation);
+               //encontrando o player na cena
+               var player = FindObjectOfType<PlayerController>();
+               //encontrando o valor da direção
+               Vector2 direcao = player.transform.position - tiro.transform.position;
+               //normalizando a velocidade 
+               direcao.Normalize();
+               //dando a direcao e velocidade do meu tiro
+               tiro.GetComponent<Rigidbody2D>().velocity = direcao * velocidadeTiro;
 
-                //reiniciar a espera do tiro
+                   //reiniciar a espera do tiro
                 esperaTiro = Random.Range(1.5f, 2f);
             }
         }

@@ -6,8 +6,7 @@ using UnityEngine;
 public class TiroController : MonoBehaviour
 {
     private Rigidbody2D meuRB;
-
-    [SerializeField] private float vel = 10f;
+    
 
     [SerializeField] private GameObject impacto;
     
@@ -20,7 +19,7 @@ public class TiroController : MonoBehaviour
         meuRB = GetComponent<Rigidbody2D>();
         
         //indo para cima
-        meuRB.velocity = new Vector2(0f, vel);
+        //meuRB.velocity = new Vector2(0f, vel);
         
         
 

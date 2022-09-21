@@ -59,7 +59,8 @@ public class Inimigo01Controller : InimigoPai
             if (esperaTiro <= 0)
             {
                 //instanciando o tiro
-                Instantiate(meuTiro, posicaoTiro.position, transform.rotation);
+               var tiro = Instantiate(meuTiro, posicaoTiro.position, transform.rotation);
+               tiro.GetComponent<Rigidbody2D>().velocity = Vector2.down * velocidadeTiro;
 
                 //reiniciar a espera do tiro
                 esperaTiro = Random.Range(1.5f, 2f);

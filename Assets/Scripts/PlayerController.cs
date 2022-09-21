@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform posicaoTiro;
     [SerializeField] private int vida = 3;
 
+    [SerializeField] private float velocidadeTiro = 10f;
+
     [SerializeField] private GameObject efeitoMorte;
     
     
@@ -27,29 +29,39 @@ public class PlayerController : MonoBehaviour
 
     
     void Update()
-    { 
-     //pegando o input horizontal 
-     float horizontal = Input.GetAxis("Horizontal");
-    
-     //pegando o input vertical
-     float vertical = Input.GetAxis("Vertical");
-     Vector2 minhaVelocidade = new Vector2(horizontal,vertical);
-     
-     //normalizando a velocidade
-     minhaVelocidade.Normalize();
-     
-      
-      
-      //passando a velocidade para o RB
-      myRB.velocity = minhaVelocidade * velocidade;
-      
-      
-      
-      //teste de botão de tiro
-      if (Input.GetButtonDown("Fire1"))
-      {
-          Instantiate(meuTiro, posicaoTiro.position, transform.rotation);
-      }
+    {
+        Movendo();
+
+
+        Atirando();
+    }
+
+    private void Movendo()
+    {
+        //pegando o input horizontal 
+        float horizontal = Input.GetAxis("Horizontal");
+
+        //pegando o input vertical
+        float vertical = Input.GetAxis("Vertical");
+        Vector2 minhaVelocidade = new Vector2(horizontal, vertical);
+
+        //normalizando a velocidade
+        minhaVelocidade.Normalize();
+
+
+        //passando a velocidade para o RB
+        myRB.velocity = minhaVelocidade * velocidade;
+    }
+
+    private void Atirando()
+    {
+        //teste de botão de tiro
+        if (Input.GetButtonDown("Fire1"))
+        {
+           var tiro = Instantiate(meuTiro, posicaoTiro.position, transform.rotation);
+           // dar a direção e velocidade para o rb do tiro
+           tiro.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, velocidadeTiro);
+        }
     }
 
     public void PerdaVida(int dano)
