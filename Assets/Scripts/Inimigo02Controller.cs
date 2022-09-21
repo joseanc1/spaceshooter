@@ -57,6 +57,12 @@ public class Inimigo02Controller : InimigoPai
                direcao.Normalize();
                //dando a direcao e velocidade do meu tiro
                tiro.GetComponent<Rigidbody2D>().velocity = direcao * velocidadeTiro;
+               
+               //dando o angulo que o tiro deve estar
+               float angulo = Mathf.Atan2(direcao.y, direcao.x) * Mathf.Rad2Deg;
+               
+               //passando o ângulo
+               tiro.transform.rotation = Quaternion.Euler(0f, 0f, angulo);
 
                    //reiniciar a espera do tiro
                 esperaTiro = Random.Range(1.5f, 2f);
