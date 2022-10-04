@@ -38,34 +38,39 @@ public class Inimigo02Controller : InimigoPai
     private void Atirando()
     {
 
-
-        Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
-        if (viewPos.y > 0 && viewPos.y <1)
+        bool visivel = GetComponentInChildren<SpriteRenderer>().isVisible;
+        
+        if (visivel)
         {
-            //diminuindo a espera, e se ela for igual ou menor que 0 o inimigo atira
-            esperaTiro -= Time.deltaTime;
-
-            if (esperaTiro <= 0)
+            //encontrando o player na cena
+            var player = FindObjectOfType<PlayerController>();
+            
+            //só fazer animação se o player existir
+            if (player)
             {
-                //instanciando o tiro
-               var tiro = Instantiate(meuTiro, posicaoTiro.position, transform.rotation);
-               //encontrando o player na cena
-               var player = FindObjectOfType<PlayerController>();
-               //encontrando o valor da direção
-               Vector2 direcao = player.transform.position - tiro.transform.position;
-               //normalizando a velocidade 
-               direcao.Normalize();
-               //dando a direcao e velocidade do meu tiro
-               tiro.GetComponent<Rigidbody2D>().velocity = direcao * velocidadeTiro;
+                //diminuindo a espera, e se ela for igual ou menor que 0 o inimigo atira
+                esperaTiro -= Time.deltaTime;
+                if (esperaTiro <= 0)
+                {
+                    //instanciando o tiro
+                    var tiro = Instantiate(meuTiro, posicaoTiro.position, transform.rotation);
                
-               //dando o angulo que o tiro deve estar
-               float angulo = Mathf.Atan2(direcao.y, direcao.x) * Mathf.Rad2Deg;
+                    //encontrando o valor da direção
+                    Vector2 direcao = player.transform.position - tiro.transform.position;
+                    //normalizando a velocidade 
+                    direcao.Normalize();
+                    //dando a direcao e velocidade do meu tiro
+                    tiro.GetComponent<Rigidbody2D>().velocity = direcao * velocidadeTiro;
                
-               //passando o ângulo
-               tiro.transform.rotation = Quaternion.Euler(0f, 0f, angulo);
+                    //dando o angulo que o tiro deve estar
+                    float angulo = Mathf.Atan2(direcao.y, direcao.x) * Mathf.Rad2Deg;
+               
+                    //passando o ângulo
+                    tiro.transform.rotation = Quaternion.Euler(0f, 0f, angulo +90f);
 
-                   //reiniciar a espera do tiro
-                esperaTiro = Random.Range(1.5f, 2f);
+                    //reiniciar a espera do tiro
+                    esperaTiro = Random.Range(1.5f, 2f);
+                }
             }
         }
     }
