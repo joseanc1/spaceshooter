@@ -10,6 +10,10 @@ public class Inimigo02Controller : InimigoPai
     [SerializeField] private GameObject meuTiro;
 
     [SerializeField] private Transform posicaoTiro;
+
+    [SerializeField] private float yMax = 2.5f;
+
+    private bool possoMover = true;
     
     protected float esperaTiro;
     
@@ -33,6 +37,34 @@ public class Inimigo02Controller : InimigoPai
     {
        
         Atirando();
+
+        //checando se cheguei no meio da tela e se posso mover
+        if (transform.position.y < yMax && possoMover)
+        {
+            
+            //checando se estou na esquerda ou direita
+            if (transform.position.x < 0f)
+            {
+                Debug.Log("estou na esquerda");
+                    //indo para direita
+                    meuRb.velocity = new Vector2(velocidade * -1, velocidade);
+                    
+                //não posso mais mover
+                possoMover = false;
+            }
+            else
+            {
+                Debug.Log("estou na direita");
+                //indo para esquerda
+                meuRb.velocity = new Vector2(velocidade , velocidade);
+                
+                
+                //não posso mais mover
+                possoMover = false;
+            }
+        }
+        
+
     }
 
     private void Atirando()
