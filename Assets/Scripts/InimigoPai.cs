@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class InimigoPai : MonoBehaviour
 {
@@ -11,7 +13,6 @@ public class InimigoPai : MonoBehaviour
     [SerializeField] protected float velocidadeTiro = 5f;
     [SerializeField] protected GameObject explosao;
     [SerializeField] protected float esperaTiro = 1f;
-    
     
     
     
@@ -40,5 +41,25 @@ public class InimigoPai : MonoBehaviour
             Instantiate(explosao, transform.position, transform.rotation);
         }
     }
-    
+
+    //destruindo inimigo ao sair da cena
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Destruidor"))
+        {
+            Destroy(gameObject);
+        } 
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Jogador"))
+        {
+            Destroy(gameObject);
+            Instantiate(explosao, transform.position, transform.rotation);
+            
+            //tirando vida do player
+            other.gameObject.GetComponent<PlayerController>().PerdaVida(1);
+        }
+    }
 }

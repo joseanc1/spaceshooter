@@ -78,8 +78,8 @@ Rigidbody2D:
   m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseAutoMass: 1
+  m_Mass: 0.44634956
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab7c164a744d2f4b8a1b2c1540fa340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidade: -3
+  velocidade: -2
   vida: 1
   velocidadeTiro: 6
   explosao: {fileID: 7324414365119074927, guid: c110de2906e4b0146abbaedb37749ed4, type: 3}
@@ -117,7 +117,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

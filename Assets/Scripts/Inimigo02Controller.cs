@@ -45,7 +45,7 @@ public class Inimigo02Controller : InimigoPai
             //checando se estou na esquerda ou direita
             if (transform.position.x < 0f)
             {
-                Debug.Log("estou na esquerda");
+               
                     //indo para direita
                     meuRb.velocity = new Vector2(velocidade * -1, velocidade);
                     
@@ -54,7 +54,7 @@ public class Inimigo02Controller : InimigoPai
             }
             else
             {
-                Debug.Log("estou na direita");
+               
                 //indo para esquerda
                 meuRb.velocity = new Vector2(velocidade , velocidade);
                 
