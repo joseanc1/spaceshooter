@@ -51,7 +51,7 @@ public class GeradorInimigos : MonoBehaviour
             esperaInimigo = tempoEspera;
             
             //criando um inimigo
-            Vector3 posicao = new Vector3(Random.Range(-9f, 9f), Random.Range(6f, 17f), 0f);
+            Vector3 posicao = new Vector3(Random.Range(-8f, 8f), Random.Range(6f, 17f), 0f);
             Instantiate(inimigos[0], posicao, transform.rotation);
         }
     }
