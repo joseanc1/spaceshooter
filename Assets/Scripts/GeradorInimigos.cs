@@ -52,7 +52,7 @@ public class GeradorInimigos : MonoBehaviour
             
             //criando um inimigo
             Vector3 posicao = new Vector3(Random.Range(-8f, 8f), Random.Range(6f, 17f), 0f);
-            Instantiate(inimigos[0], posicao, transform.rotation);
+            Instantiate(inimigos[1], posicao, transform.rotation);
         }
     }
 }
