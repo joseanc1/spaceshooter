@@ -9,7 +9,7 @@ public class GeradorInimigos : MonoBehaviour
 
     private int pontos = 0;
 
-    private int level = 1;
+    [SerializeField ]private int level = 1;
 
     private float esperaInimigo = 0f;
 
@@ -48,11 +48,25 @@ public class GeradorInimigos : MonoBehaviour
         if (esperaInimigo <= 0f)
         {
 
+            GameObject inimigoCriado;
+            
+            //escolhendo a criação de qual inimigo
+            float chance = Random.Range(0f, level);
+            if (chance > 4f)
+            {
+                inimigoCriado = inimigos[1];
+            }
+            else
+            {
+                inimigoCriado = inimigos[0];
+            }
+            
+
             esperaInimigo = tempoEspera;
             
             //criando um inimigo
             Vector3 posicao = new Vector3(Random.Range(-8f, 8f), Random.Range(6f, 17f), 0f);
-            Instantiate(inimigos[1], posicao, transform.rotation);
+            Instantiate(inimigoCriado, posicao, transform.rotation);
         }
     }
 }
