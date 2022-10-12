@@ -100,11 +100,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab7c164a744d2f4b8a1b2c1540fa340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidade: -2
+  velocidade: -1.5
   vida: 1
-  velocidadeTiro: 6
+  velocidadeTiro: 4
   explosao: {fileID: 7324414365119074927, guid: c110de2906e4b0146abbaedb37749ed4, type: 3}
-  esperaTiro: 1
+  esperaTiro: 2
   pontos: 10
   meuTiro: {fileID: 2099386575307268028, guid: 31b264776ff5fe349b4fa1e4f243841c, type: 3}
   posicaoTiro: {fileID: 138787178}

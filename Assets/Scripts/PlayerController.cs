@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 
 public class PlayerController : MonoBehaviour
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
 
     private void Movendo()
     {
+        
         //pegando o input horizontal 
         float horizontal = Input.GetAxis("Horizontal");
 

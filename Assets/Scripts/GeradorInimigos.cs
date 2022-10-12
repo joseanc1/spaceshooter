@@ -13,15 +13,11 @@ public class GeradorInimigos : MonoBehaviour
 
     private float esperaInimigo = 0f;
 
-    [SerializeField] private float tempoEspera = 5f;
+    [SerializeField] private float tempoEspera = 2f;
 
     [SerializeField] private int baseLevel = 100;
 
-   
-
-
-
-
+    [SerializeField] private int qtdInimigos = 0;
 
     void Start()
     {
@@ -31,10 +27,8 @@ public class GeradorInimigos : MonoBehaviour
     
     void Update()
     {
-       
-        
-        GeraInimigos();
 
+        GeraInimigos();
     }
     
 
@@ -47,23 +41,26 @@ public class GeradorInimigos : MonoBehaviour
         if (this.pontos > baseLevel * level)
         {
             level++;
-            
         }
+    }
+
+    public void DiminuiQuantidade()
+    {
+        qtdInimigos--;
     }
 
     private void GeraInimigos()
     {
-        if (esperaInimigo > 0f)
+        if (esperaInimigo > 0f && qtdInimigos <= 0)
         {
             esperaInimigo -= Time.deltaTime;
-            
         }
 
 
-        if (esperaInimigo <= 0f)
+        if (esperaInimigo <= 0f && qtdInimigos <= 0)
         {
-            int quantidade = level * 2;
-            int qtdInimigos = 0;
+            int quantidade = level * 4;
+            
             
             //criando vários inimigos de uma vez
             while (qtdInimigos < quantidade)
@@ -80,12 +77,10 @@ public class GeradorInimigos : MonoBehaviour
                 {
                     inimigoCriado = inimigos[0];
                 }
-            
-
                 
             
                 //definindo a posição e criando o inimigo
-                Vector3 posicao = new Vector3(Random.Range(-8f, 8f), Random.Range(6f, 17f), 0f);
+                Vector3 posicao = new Vector3(Random.Range(-8f, 8f), Random.Range(6f, 12f), 0f);
                 Instantiate(inimigoCriado, posicao, transform.rotation);
                 
                 //aumentando a quantidade de inimigos criados 
@@ -94,8 +89,6 @@ public class GeradorInimigos : MonoBehaviour
                 //reiniciando o tempo de espera
                 esperaInimigo = tempoEspera;
             }
-
-           
         }
     }
 }
