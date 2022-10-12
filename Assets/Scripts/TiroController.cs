@@ -34,30 +34,34 @@ public class TiroController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //pegar o metodo perdeVida e aplicar o dano
-        //só deve funcionar se colidir com alguem que tenha o script inimigo controller 01
-        //checando se a tag de quem estou colidindo é inimigo01
-        if (collision.CompareTag("Inimigo"))
-        {
-            collision.GetComponent<InimigoPai>().PerdeVida(1);
+        
+        
+            //pegar o metodo perdeVida e aplicar o dano
+            //só deve funcionar se colidir com alguem que tenha o script inimigo controller 01
+            //checando se a tag de quem estou colidindo é inimigo01
+            if (collision.CompareTag("Inimigo"))
+            {
+                collision.GetComponent<InimigoPai>().PerdeVida(1);
             
 
-        }
+            }
         
         
 
         
-        //checando colisão com o player
-        if (collision.CompareTag("Jogador"))
-        {
-            collision.GetComponent<PlayerController>().PerdaVida(1);
+            //checando colisão com o player
+            if (collision.CompareTag("Jogador"))
+            {
+                collision.GetComponent<PlayerController>().PerdaVida(1);
             
-        }
+            }
 
-        Destroy(gameObject);
+            Destroy(gameObject);
         
-        //criando o impacto
-        Instantiate(impacto, transform.position, transform.rotation);
+            //criando o impacto
+            Instantiate(impacto, transform.position, transform.rotation);
 
+        
+      
     }
 }

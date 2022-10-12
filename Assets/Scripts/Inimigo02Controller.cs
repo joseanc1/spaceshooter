@@ -15,10 +15,6 @@ public class Inimigo02Controller : InimigoPai
 
     private bool possoMover = true;
     
-    protected float esperaTiro;
-    
-    
-    
     
     void Start()
     {

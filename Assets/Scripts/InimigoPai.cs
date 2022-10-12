@@ -13,6 +13,7 @@ public class InimigoPai : MonoBehaviour
     [SerializeField] protected float velocidadeTiro = 5f;
     [SerializeField] protected GameObject explosao;
     [SerializeField] protected float esperaTiro = 1f;
+    [SerializeField] protected int pontos = 10;
     
     
     
@@ -30,16 +31,29 @@ public class InimigoPai : MonoBehaviour
     //metodo perde vida
     public void PerdeVida(int dano)
     {
-        vida -= dano;
+        
+        Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
+        if (viewPos.y > 0 && viewPos.y < 1)
+        {
+            vida -= dano;
 
         
-        //checando se morri
-        if (vida <= 0)
-        {
-            Destroy(gameObject);
+            //checando se morri
+            if (vida <= 0)
+            {
+                Destroy(gameObject);
 
-            Instantiate(explosao, transform.position, transform.rotation);
+                Instantiate(explosao, transform.position, transform.rotation);
+                
+                
+                //ganhando pontos
+                FindObjectOfType<GeradorInimigos>().GanhaPontos(pontos);
+            }
+            
+            
         }
+        
+        
     }
 
     //destruindo inimigo ao sair da cena
@@ -53,13 +67,16 @@ public class InimigoPai : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        
         if (other.gameObject.CompareTag("Jogador"))
         {
             Destroy(gameObject);
+            
             Instantiate(explosao, transform.position, transform.rotation);
             
             //tirando vida do player
             other.gameObject.GetComponent<PlayerController>().PerdaVida(1);
+         
         }
     }
 }

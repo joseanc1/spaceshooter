@@ -7,7 +7,6 @@ public class Inimigo01Controller : InimigoPai
 
     //variavel do rigidbody2d
     private Rigidbody2D meuRb;
-
     
 
     [SerializeField] private GameObject meuTiro;
@@ -15,18 +14,8 @@ public class Inimigo01Controller : InimigoPai
 
     [SerializeField] private Transform posicaoTiro;
     
-
-    
-
-    
-    
-    protected float esperaTiro = 1f;
-    
     void Start()
     {
-
-       
-        
         
         //pegando o rigidbody
         meuRb = GetComponent<Rigidbody2D>();
@@ -55,13 +44,13 @@ public class Inimigo01Controller : InimigoPai
         {
             //diminuindo a espera, e se ela for igual ou menor que 0 o inimigo atira
             esperaTiro -= Time.deltaTime;
-
+        
             if (esperaTiro <= 0)
             {
                 //instanciando o tiro
                var tiro = Instantiate(meuTiro, posicaoTiro.position, transform.rotation);
                tiro.GetComponent<Rigidbody2D>().velocity = Vector2.down * velocidadeTiro;
-
+        
                 //reiniciar a espera do tiro
                 esperaTiro = Random.Range(1.5f, 2f);
             }

@@ -7,13 +7,15 @@ public class GeradorInimigos : MonoBehaviour
 
     [SerializeField] private GameObject[] inimigos;
 
-    private int pontos = 0;
+    [SerializeField] private int pontos = 0;
 
     [SerializeField ]private int level = 1;
 
     private float esperaInimigo = 0f;
 
     [SerializeField] private float tempoEspera = 5f;
+
+    [SerializeField] private int baseLevel = 100;
 
    
 
@@ -32,8 +34,21 @@ public class GeradorInimigos : MonoBehaviour
        
         
         GeraInimigos();
-        
 
+    }
+    
+
+    public void GanhaPontos(int pontos)
+    {
+        this.pontos += pontos;
+        
+        
+        //ganhando level
+        if (this.pontos > baseLevel * level)
+        {
+            level++;
+            
+        }
     }
 
     private void GeraInimigos()
@@ -47,26 +62,40 @@ public class GeradorInimigos : MonoBehaviour
 
         if (esperaInimigo <= 0f)
         {
-
-            GameObject inimigoCriado;
+            int quantidade = level * 2;
+            int qtdInimigos = 0;
             
-            //escolhendo a criação de qual inimigo
-            float chance = Random.Range(0f, level);
-            if (chance > 4f)
+            //criando vários inimigos de uma vez
+            while (qtdInimigos < quantidade)
             {
-                inimigoCriado = inimigos[1];
-            }
-            else
-            {
-                inimigoCriado = inimigos[0];
-            }
+                GameObject inimigoCriado;
+            
+                //escolhendo qual inimigo inimigo criar
+                float chance = Random.Range(0f, level);
+                if (chance > 2f)
+                {
+                    inimigoCriado = inimigos[1];
+                }
+                else
+                {
+                    inimigoCriado = inimigos[0];
+                }
             
 
-            esperaInimigo = tempoEspera;
+                
             
-            //criando um inimigo
-            Vector3 posicao = new Vector3(Random.Range(-8f, 8f), Random.Range(6f, 17f), 0f);
-            Instantiate(inimigoCriado, posicao, transform.rotation);
+                //definindo a posição e criando o inimigo
+                Vector3 posicao = new Vector3(Random.Range(-8f, 8f), Random.Range(6f, 17f), 0f);
+                Instantiate(inimigoCriado, posicao, transform.rotation);
+                
+                //aumentando a quantidade de inimigos criados 
+                qtdInimigos++;
+                
+                //reiniciando o tempo de espera
+                esperaInimigo = tempoEspera;
+            }
+
+           
         }
     }
 }

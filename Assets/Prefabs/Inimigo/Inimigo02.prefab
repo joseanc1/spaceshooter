@@ -201,14 +201,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3726187375170919186}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -247,6 +247,7 @@ MonoBehaviour:
   velocidadeTiro: 5
   explosao: {fileID: 7324414365119074927, guid: c110de2906e4b0146abbaedb37749ed4, type: 3}
   esperaTiro: 1
+  pontos: 25
   meuTiro: {fileID: 5488154398519637279, guid: 6a8f0410d8bb09b46b62c5abbc529c4b, type: 3}
   posicaoTiro: {fileID: 2063834366}
   yMax: 2.5
